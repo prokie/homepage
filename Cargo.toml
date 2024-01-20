@@ -1,0 +1,18 @@
+[package]
+name = "homepage"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+leptos = { version = "0.5.7", features = ["csr", "nightly"] }
+
+
+[profile.wasm-release]
+inherits = "release"
+opt-level = 'z'
+lto = true
+codegen-units = 1
+
+
+[package.metadata.leptos]
+lib-profile-release = "wasm-release"
